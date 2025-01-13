@@ -75,3 +75,4 @@ function draw() {
   image(p,random(width),random(height));
 
 }
+function glitchtakeover(){}
