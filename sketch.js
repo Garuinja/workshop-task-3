@@ -15,9 +15,11 @@ function setup() {
   imgs.push(frog);
   imgs.push(dog);
   imgs.push(cat);
-  image(frog,random(0,width),random(0,height));
-  image(dog,random(0,width),random(0,height));
-  image(cat,random(0,width),random(0,height));
+  for(i=0;i<30;i++){
+    image(frog,random(0,width),random(0,height));
+    image(dog,random(0,width),random(0,height));
+    image(cat,random(0,width),random(0,height));
+  }
 }
 
 function draw() {
