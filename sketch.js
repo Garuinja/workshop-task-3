@@ -1,77 +1,83 @@
 let imgs = [];
-let frog,dog,cat;
+let frog,dog,cat,bird;
+let cubephoto;
+let tintphoto;
+let alttint;
+let disent;
 
 function preload(){
   frog = loadImage('images/frog.jpg');
   dog = loadImage('images/dog.jpg');
   cat = loadImage('images/cat.jpg');
+  bird = loadImage('images/bird.jpg');
 }
 
 function setup() {
   createCanvas(400, 400);
   background(220);
-  frameRate(20);
-  pixelDensity(1);
+  frameRate(10)
   imgs.push(frog);
   imgs.push(dog);
   imgs.push(cat);
-  for(i=0;i<30;i++){
-    image(frog,random(0,width),random(0,height));
-    image(dog,random(0,width),random(0,height));
-    image(cat,random(0,width),random(0,height));
-  }
+  imgs.push(bird);
+  cubephoto = random(imgs);
+  tintphoto = random(imgs);
+  alttint = random(imgs);
+  disent = random(imgs)
 }
 
 function draw() {
   // background(220);
-  //let r = random(imgs);
-  // let x = random(r.width);
-  // let y = random(r.height);
-  // let c = r.get(int(x),int(y));
-  // fill(c);
-  // noStroke();
-  // rect(x,y,20,20);
-  // image(frog,230,0);
-  // image(dog,random(0,width),random(height));
-  // image(cat,random(0,width),random(0,height));
+  let red = random(0, 255);
+  let green = random(0, 255);
+  let blue = random(0, 255);
+  tint(red,green, blue);
+  image(tintphoto,0,0)
+  // for(i = 0; i < final.length; i++){
+  //   image(final[0], final[1], final[2]);
+  //   pixeldisent(dog);
+  //   pixeldisent(cat);
+  //   pixeldisent(frog);
+  //   pixeldisent(bird);
+  //   final.splice(0, 3);
+  // }
 
-  frog.loadPixels();
-  for(let y = 0; y < frog.height; y++){
-    for(let x = 0; x < frog.width; x++){
-      let index = (x + y * frog.width) * 4;
-      //frog.pixels[index] = random(0,255);
-      frog.pixels[index + 1] = random(0,255);
-      //frog.pixels[index + 2] = random(0,255);
-      frog.pixels[index + 3] = random(0,255);
-    }
-  }
-  frog.updatePixels();
 
-  dog.loadPixels();
-  for(let y = 0; y < dog.height; y++){
-    for(let x = 0; x < dog.width; x++){
-      let index = (x + y * dog.width) * 4;
-      dog.pixels[index] = random(0,255);
-      //dog.pixels[index + 1] = 0;
-      //dog.pixels[index + 2] = 0;
-      dog.pixels[index + 3] = random(0,255);
-    }
-  }
-  dog.updatePixels();
+  red = random(0, 255);
+  green = random(0, 255);
+  blue = random(0, 255);
+  tint(red,green, blue);
+  image(alttint,0,200);
 
-  cat.loadPixels();
-  for(let y = 0; y < cat.height; y++){
-    for(let x = 0; x < cat.width; x++){
-      let index = (x + y * cat.width) * 4;
+  image(disent,233,200);
+  disent.loadPixels();
+  for(let y = 0; y < disent.height; y++){
+    for(let x = 0; x < disent.width; x++){
+      let index = (x + y * disent.width) * 4;
       //cat.pixels[index] = random(0,255);
       //cat.pixels[index + 1] = random(0,255);
-      cat.pixels[index + 2] = random(0,255);
-      cat.pixels[index + 3] = random(0,255);
+      disent.pixels[index + 2] = random(0,255);
+      disent.pixels[index + 3] = random(0,255);
     }
   }
-  cat.updatePixels();
-  
-  let p = random(imgs);
-  image(p,random(width),random(height));
+  disent.updatePixels();
+
+  // image(bird,201,0);
+  // let x = random(bird.width);
+  // let y = random(bird.height);
+  // let c = bird.get(int(x), int(y));
+  // fill(c);
+  // noStroke();
+  // rect(x+201,y,20,20);
+
+  let w = random(cubephoto.width);
+  let h = random(cubephoto.height);
+  let f = cubephoto.get(int(w), int(h));
+  fill(f);
+  noStroke();
+  rect(w+201,h,20,20);
+
+  // let dif = random(test);
+  // text(dif, 300, 395);
 
 }
